@@ -1,0 +1,80 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href = "{% static 'css/bootstrap.min.css' %}" rel = "stylesheet">
+    <title>{% block aba %}Template base{% endblock %}</title>
+</head>
+<body>
+    {% block barra-nav %}
+    <!-- Responsive navbar-->
+    <nav class="navbar navbar-expand-lg navbar-dark" style = "background-color: #dede7f;">
+        <div class="container px-5">
+            <a class="navbar-brand" href="{% url 'home' %}"><b>Agenda Financeira Pessoal</b></a>
+            <label for="Name" style="color: #FFFFFF; text-align: center;">{{ user.email }}</label>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link active" aria-current="page" href="{% url 'home' %}" style="font-weight: bold;">Página Inicial</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'sobre' %}">Sobre</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'contato' %}">Contato</a></li>
+                    <li class="nav-item"><a class="nav-link text-white" href="{% url 'logout' %}">Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    {% endblock %}
+
+    <!-- Page Content-->
+    <div class="container px-4 px-lg-5" style="border-color: #aeae64;">
+        
+        <!-- Call to Action-->
+        <div class="card text-white my-5 py-4 text-center" style = "background-color: #dede7f">
+            <div class="card-body"><h5 class="text-white m-0">{% block titulo %}Seja bem-vindo(a) a <i>Agenda Financeira Pessoal</i>, aqui você encontrará todos os dados das suas despesas.{% endblock %}</h5></div>
+        </div>
+        <!-- Content Row-->
+        <div class="row gx-4 gx-lg-5">
+            {% block conteudo %}
+            <div class="col-md-4 mb-5">
+                <div class="card h-100" style = "background-color: #f7e542;">
+                    <div class="card-body" style = "background-color: #FFFFFF;">
+                        <h2 class="card-title text-center">Lançar Despesas</h2>
+                        <p class="card-text text-center">Nesta opção você poderá lançar todas os dados referentes às suas despesas, discriminando todos os respectivos detalhes.</p>
+                    </div>
+                    <div class="card-footer text-center" style="background-color: #FFFFFF;"><a class="btn btn-outline-warning" href="{% url 'lancar' %}">Clique aqui</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100" style = "background-color: #f7e542;">
+                    <div class="card-body" style = "background-color: #FFFFFF;">
+                        <h2 class="card-title text-center">Alterar Despesa</h2>
+                        <p class="card-text text-center">Nesta opção você poderá alterar todos os dados já lançados referentes às suas despesas, inclusive excluir alguma despesa.</p>
+                    </div>
+                    <div class="card-footer text-center" style="background-color: #FFFFFF;"><a class="btn btn-outline-warning" href="{% url 'alterar' %}">Clique aqui</a></div>
+                </div>
+            </div>
+            <div class="col-md-4 mb-5">
+                <div class="card h-100" style = "background-color: #f7e542;">
+                    <div class="card-body" style = "background-color: #FFFFFF;">
+                        <h2 class="card-title text-center">Visualizar Despesas</h2>
+                        <p class="card-text text-center">Nesta opção você poderá visualizar todos os dados já lançadas referentes às suas despesas.</p>
+                    </div>
+                    <div class="card-footer text-center" style="background-color: #FFFFFF;"><a class="btn btn-outline-warning" href="{% url 'visualizar' %}">Clique aqui</a></div>
+                </div>
+            </div>
+            {% endblock %}
+        </div>
+    </div>
+    <!-- Footer-->
+    <footer class="fixed-bottom" style = "background-color: #dede7f;">
+        <div class="container px-4 px-lg-5"><p class="m-0 text-center text-white">Copyright &copy; Agenda Financeira Pessoal 2024</p></div>
+    </footer>
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Core theme JS-->
+    <script src="js/scripts.js"></script>
+</body>
+</html>

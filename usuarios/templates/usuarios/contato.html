@@ -1,0 +1,35 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Contato{% endblock %}
+
+{% block titulo %}<h4>Fale Conosco</h4>{% endblock %}
+
+{% block conteudo %}
+<div class="container mt-4 text-center">
+    <h4>Entre em Contato</h4>
+    <p>Você pode nos encontrar e seguir nas nossas redes sociais:</p>
+
+    <!-- Redes Sociais em círculos -->
+    <div class="d-flex justify-content-center">
+        <a href="https://www.facebook.com/seuperfil" target="_blank" class="btn btn-outline-primary rounded-circle m-2" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            <i class="fab fa-facebook-f"></i> <!-- Ícone do Facebook -->
+        </a>
+        <a href="https://www.instagram.com/seuperfil" target="_blank" class="btn btn-outline-danger rounded-circle m-2" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            <i class="fab fa-instagram"></i> <!-- Ícone do Instagram -->
+        </a>
+        <a href="https://www.twitter.com/seuperfil" target="_blank" class="btn btn-outline-info rounded-circle m-2" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            <i class="fab fa-twitter"></i> <!-- Ícone do Twitter -->
+        </a>
+        <a href="https://www.linkedin.com/in/seuperfil" target="_blank" class="btn btn-outline-primary rounded-circle m-2" style="width: 60px; height: 60px; display: flex; justify-content: center; align-items: center;">
+            <i class="fab fa-linkedin-in"></i> <!-- Ícone do LinkedIn -->
+        </a>
+    </div>
+
+    <hr>
+
+    <div class="mt-4">
+        <p><strong>Email:</strong> contato@agendafinancpessoal.com</p>
+        <p><strong>Telefone:</strong> +55 (69) 91234-5678</p>
+    </div>
+</div>
+{% endblock %}

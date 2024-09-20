@@ -1,0 +1,49 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Visualizar Despesas{% endblock %}
+
+{% block titulo %}Visualizar Despesas{% endblock %}
+
+{% block conteudo %}
+<h3>Visualização de Despesas registradas</h3>
+<hr>
+<form action = "{% url 'visualizar' %}" method = "POST">
+    {% csrf_token %}
+    <div class = "filter">
+        <label for = "disciplinaName">Filtrar por Despesa:</label>
+        <select name = "disciplina">
+            <option>Todas as despesas</option>
+            {% for campo in lista_notas %}
+                <option>Despesa de {{ campo.disciplina }}</option>
+            {% endfor %}
+        </select>
+        <button type = "submit" class = "btn btn-warning">Filtrar</button>
+    </div>
+</form>
+
+<div class = "table-responsive">
+    <table class = "table table-striped text-center">
+        <tr>
+            <th>Despesa de</th>
+            <th>Despesa</th>
+            <th>Valor</th>
+            <th>Dia do Vencimento</th>
+            <th>Mês do Vencimento</th>
+        </tr>
+        {% for campo in lista_notas %}
+        <tr>
+            <td>{{ user.first_name }}</td>
+            <td>{{ campo.disciplina }}</td>
+            <td>{{ campo.nota_atividades }}</td>
+            <td>{{ campo.nota_trabalho }}</td>
+            <td>{{ campo.nota_prova }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan = "6">Nenhum registro encontrado.</td>
+        </tr>
+        {% endfor %}
+    </table>
+</div>
+<hr>
+{% endblock %}

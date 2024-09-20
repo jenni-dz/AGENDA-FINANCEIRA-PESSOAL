@@ -1,0 +1,37 @@
+{% extends 'usuarios/base.html' %}
+
+{% block aba %}Informar Despesas{% endblock %}
+
+{% block titulo %}Informar Despesas{% endblock %}
+
+{% block conteudo %}
+<h3>Cadastro de Despesas</h3>
+<p class = "lead">Preencha todas as informações.</p>
+<hr>
+<form action = "{% url 'lancar' %}" method = "POST" style="justify-items: center;">
+    {% csrf_token %}
+    <div class = "form-register mb-3" style="text-align: center">
+        <label for = "userName">Despesa de:</label>
+        <label for = "Name" style = "font-weight:bold;">{{ user.first_name }}</label>
+    </div>
+    <div class = "form-register mb-3" style="text-align: center">
+        <label for = "disciplinaName">Despesa:</label>
+        <input type = "text" id = "disciplinaName" name = "disciplina" placeholder="Academia/Água/Energia">
+    </div>
+    <div class = "form-register mb-3" style="text-align: center">
+        <label for = "notaAtividades">Valor (R$):</label>
+        <input type = "text" id = "notaAtividades" name = "nota_atividades" placeholder="sem casas decimais">
+    </div>
+    <div class = "form-register mb-3" style="text-align: center">
+        <label for = "notaTrabalho">Dia do Vencimento:</label>
+        <input type = "text" id = "notaTrabalho" name = "nota_trabalho" placeholder="00">
+    </div>
+    <div class = "form-register mb-3" style="text-align: center">
+        <label for = "notaProva">Mês do Vencimento:</label>
+        <input type = "text" id = "notaProva" name = "nota_prova" placeholder="00">
+    </div>
+    <div style="display: flex; margin: 0 auto 0 auto; justify-content: center">
+        <button type = "submit" class = "btn btn-warning">Registrar Despesa</button>
+    </div>
+</form>
+{% endblock %}
